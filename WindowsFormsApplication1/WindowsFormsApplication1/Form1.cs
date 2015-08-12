@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +19,6 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileMain.ShowDialog() == DialogResult.OK)
@@ -33,21 +30,21 @@ namespace WindowsFormsApplication1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Create the MATLAB instance 
-            MLApp.MLApp matlab = new MLApp.MLApp();
-
-            // Change to the directory where the function is located 
-            matlab.Execute(@"cd c:\Windows\Temp");
-
-            // Define the output 
-            object result = null;
-
-            // Call the MATLAB function myfunc
-            matlab.Execute("syms a x(t)");
-            result = matlab.Execute("dsolve(diff(x) == -a*x)");
-
-            Console.WriteLine(result);
-            MessageBox.Show(result.ToString());
+            Process proc = new Process
+            {
+                StartInfo =
+                {
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    FileName = @"calcApps\testfunc\testfunc.exe",
+                    Arguments = $"{num1.Value} {num2.Value}"
+                }
+            };
+            proc.Start();
+            string output = proc.StandardOutput.ReadToEnd();
+            proc.WaitForExit();
+            Console.Write(output);
+            MessageBox.Show(output);
         }
     }
 }

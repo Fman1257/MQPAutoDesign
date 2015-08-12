@@ -35,10 +35,16 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.openFileMain = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.openFileMain = new System.Windows.Forms.OpenFileDialog();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.num1 = new System.Windows.Forms.NumericUpDown();
+            this.num2 = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -94,6 +100,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.19664F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.80336F));
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -102,10 +109,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(834, 562);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // openFileMain
-            // 
-            this.openFileMain.FileName = "Select Template";
             // 
             // button1
             // 
@@ -117,6 +120,34 @@
             this.button1.Text = "Do Matlab";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // openFileMain
+            // 
+            this.openFileMain.FileName = "Select Template";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.num1);
+            this.flowLayoutPanel1.Controls.Add(this.num2);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(445, 275);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // num1
+            // 
+            this.num1.Location = new System.Drawing.Point(3, 3);
+            this.num1.Name = "num1";
+            this.num1.Size = new System.Drawing.Size(120, 20);
+            this.num1.TabIndex = 0;
+            // 
+            // num2
+            // 
+            this.num2.Location = new System.Drawing.Point(129, 3);
+            this.num2.Name = "num2";
+            this.num2.Size = new System.Drawing.Size(120, 20);
+            this.num2.TabIndex = 1;
             // 
             // Form1
             // 
@@ -132,6 +163,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.num1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +182,9 @@
         private System.Windows.Forms.OpenFileDialog openFileMain;
         private System.Windows.Forms.ToolStripMenuItem openRecentToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.NumericUpDown num1;
+        private System.Windows.Forms.NumericUpDown num2;
     }
 }
 
