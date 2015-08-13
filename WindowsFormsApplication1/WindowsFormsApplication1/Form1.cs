@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        int x = 0;
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +43,10 @@ namespace WindowsFormsApplication1
             };
             proc.Start();
             string output = proc.StandardOutput.ReadToEnd();
+            int y; // This is the result of subtraction and y coordinate of graph
+            int.TryParse(output, out y); // Convert string to int
+            chart1.Series["Series1"].Points.AddXY(x + 1, y); // plot
+            x = x + 1; // increment x coordinate of graph by 1
             proc.WaitForExit();
             Console.Write(output);
             MessageBox.Show(output);
