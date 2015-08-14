@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,12 +39,18 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.num1 = new System.Windows.Forms.NumericUpDown();
             this.num2 = new System.Windows.Forms.NumericUpDown();
-            this.openFileMain = new System.Windows.Forms.OpenFileDialog();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
+            this.openFileMain = new System.Windows.Forms.OpenFileDialog();
+            this.initialbox = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.equationbox = new System.Windows.Forms.TextBox();
+            this.time0box = new System.Windows.Forms.TextBox();
+            this.timefbox = new System.Windows.Forms.TextBox();
+            this.ODEbutton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -116,21 +123,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(834, 562);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(756, 536);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Do Matlab";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.num1);
             this.flowLayoutPanel1.Controls.Add(this.num2);
+            this.flowLayoutPanel1.Controls.Add(this.equationbox);
+            this.flowLayoutPanel1.Controls.Add(this.time0box);
+            this.flowLayoutPanel1.Controls.Add(this.timefbox);
+            this.flowLayoutPanel1.Controls.Add(this.initialbox);
+            this.flowLayoutPanel1.Controls.Add(this.ODEbutton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -151,25 +152,79 @@
             this.num2.Size = new System.Drawing.Size(120, 20);
             this.num2.TabIndex = 1;
             // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(3, 284);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(380, 263);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(756, 536);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Do Matlab";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // openFileMain
             // 
             this.openFileMain.FileName = "Select Template";
             // 
-            // chart1
+            // initialbox
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 284);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(380, 275);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
+            this.initialbox.Location = new System.Drawing.Point(215, 29);
+            this.initialbox.Name = "initialbox";
+            this.initialbox.Size = new System.Drawing.Size(100, 20);
+            this.initialbox.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // equationbox
+            // 
+            this.equationbox.Location = new System.Drawing.Point(255, 3);
+            this.equationbox.Name = "equationbox";
+            this.equationbox.Size = new System.Drawing.Size(100, 20);
+            this.equationbox.TabIndex = 3;
+            // 
+            // time0box
+            // 
+            this.time0box.Location = new System.Drawing.Point(3, 29);
+            this.time0box.Name = "time0box";
+            this.time0box.Size = new System.Drawing.Size(100, 20);
+            this.time0box.TabIndex = 4;
+            // 
+            // timefbox
+            // 
+            this.timefbox.Location = new System.Drawing.Point(109, 29);
+            this.timefbox.Name = "timefbox";
+            this.timefbox.Size = new System.Drawing.Size(100, 20);
+            this.timefbox.TabIndex = 5;
+            // 
+            // ODEbutton
+            // 
+            this.ODEbutton.Location = new System.Drawing.Point(321, 29);
+            this.ODEbutton.Name = "ODEbutton";
+            this.ODEbutton.Size = new System.Drawing.Size(75, 23);
+            this.ODEbutton.TabIndex = 6;
+            this.ODEbutton.Text = "ODE";
+            this.ODEbutton.UseVisualStyleBackColor = true;
+            this.ODEbutton.Click += new System.EventHandler(this.ODEbutton_Click_1);
             // 
             // Form1
             // 
@@ -186,6 +241,7 @@
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -209,6 +265,12 @@
         private System.Windows.Forms.NumericUpDown num1;
         private System.Windows.Forms.NumericUpDown num2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TextBox equationbox;
+        private System.Windows.Forms.TextBox time0box;
+        private System.Windows.Forms.TextBox timefbox;
+        private System.Windows.Forms.TextBox initialbox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button ODEbutton;
     }
 }
 
