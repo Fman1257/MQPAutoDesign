@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,15 +43,16 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.num1 = new System.Windows.Forms.NumericUpDown();
             this.num2 = new System.Windows.Forms.NumericUpDown();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
-            this.openFileMain = new System.Windows.Forms.OpenFileDialog();
-            this.initialbox = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.equationbox = new System.Windows.Forms.TextBox();
             this.time0box = new System.Windows.Forms.TextBox();
             this.timefbox = new System.Windows.Forms.TextBox();
+            this.initialbox = new System.Windows.Forms.TextBox();
             this.ODEbutton = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
+            this.OSLObutton = new System.Windows.Forms.Button();
+            this.openFileMain = new System.Windows.Forms.OpenFileDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -114,6 +116,7 @@
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.chart1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OSLObutton, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -152,49 +155,6 @@
             this.num2.Size = new System.Drawing.Size(120, 20);
             this.num2.TabIndex = 1;
             // 
-            // chart1
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(3, 284);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(380, 263);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(756, 536);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Do Matlab";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // openFileMain
-            // 
-            this.openFileMain.FileName = "Select Template";
-            // 
-            // initialbox
-            // 
-            this.initialbox.Location = new System.Drawing.Point(215, 29);
-            this.initialbox.Name = "initialbox";
-            this.initialbox.Size = new System.Drawing.Size(100, 20);
-            this.initialbox.TabIndex = 2;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // equationbox
             // 
             this.equationbox.Location = new System.Drawing.Point(255, 3);
@@ -216,6 +176,13 @@
             this.timefbox.Size = new System.Drawing.Size(100, 20);
             this.timefbox.TabIndex = 5;
             // 
+            // initialbox
+            // 
+            this.initialbox.Location = new System.Drawing.Point(215, 29);
+            this.initialbox.Name = "initialbox";
+            this.initialbox.Size = new System.Drawing.Size(100, 20);
+            this.initialbox.TabIndex = 2;
+            // 
             // ODEbutton
             // 
             this.ODEbutton.Location = new System.Drawing.Point(321, 29);
@@ -225,6 +192,58 @@
             this.ODEbutton.Text = "ODE";
             this.ODEbutton.UseVisualStyleBackColor = true;
             this.ODEbutton.Click += new System.EventHandler(this.ODEbutton_Click_1);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(3, 284);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(380, 263);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(756, 536);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Do Matlab";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // OSLObutton
+            // 
+            this.OSLObutton.Location = new System.Drawing.Point(454, 3);
+            this.OSLObutton.Name = "OSLObutton";
+            this.OSLObutton.Size = new System.Drawing.Size(75, 23);
+            this.OSLObutton.TabIndex = 3;
+            this.OSLObutton.Text = "OSLO";
+            this.OSLObutton.UseVisualStyleBackColor = true;
+            this.OSLObutton.Click += new System.EventHandler(this.OSLOButton_Click_1);
+            // 
+            // openFileMain
+            // 
+            this.openFileMain.FileName = "Select Template";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
@@ -271,6 +290,7 @@
         private System.Windows.Forms.TextBox initialbox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button ODEbutton;
+        private System.Windows.Forms.Button OSLObutton;
     }
 }
 
