@@ -68,7 +68,7 @@ namespace WindowsFormsApplication1
                 {
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    FileName = @"calcApps\dsolvefunc\dsolvefunc.exe",
+                    FileName = @"calcApps\dsolvefunc\dsolvefunc2.exe",
                     Arguments = $"{equationbox.Text} {time0} {timef} {initial}"
                 }
             };
