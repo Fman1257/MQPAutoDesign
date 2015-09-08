@@ -103,5 +103,12 @@ namespace WindowsFormsApplication1
 
 
         }
+
+        private void AddGearButton_Click_1(object sender, EventArgs e)
+        {
+            float teeth;
+            float.TryParse(NumberOfTeethTxtBox.Text, out teeth);
+            Program.Gear gear1 = new Program.Gear(teeth);
+        }
     }
 }

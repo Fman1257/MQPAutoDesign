@@ -16,34 +16,43 @@ namespace WindowsFormsApplication1
 
 
         // Create a class to contain properties for a gear
-        public class Gear
+        public partial class Gear
         {
             // Properties
-            public int num_teeth;
-            public int pitch_diameter;
-            public int key_hole_size;
+            public float num_teeth;
+            public float pitch_diameter;
+            public float key_hole_size;
             public float diametral_pitch;
+            public float torque;
+            public List<Gear> Input_Gears;
+            public List<Gear> Output_Gears;
 
             // Constructor for new gear
-            public Gear(int teeth, int diameter, int hole)
+            public Gear(float teeth)
             {
                 num_teeth = teeth;
-                pitch_diameter = diameter;
-                key_hole_size = hole;
                 diametral_pitch = num_teeth / pitch_diameter;
             }
+
+            void Add_Gear(Gear gear)
+            {
+                gear.Input_Gears.Add(this);
+                this.Output_Gears.Add(gear);
+            }
+
         }
 
         // Create a class to contain propereties for an axle
         public class Axle
         {
             // Properties
-            public int length;
-            public int diameter;
-            public int mass;
+            public float length;
+            public float diameter;
+            public float mass;
+            public float torque;
 
             // Constructor for new axle
-            public Axle(int length_in, int diameter_in, int mass_in)
+            public Axle(float length_in, float diameter_in, float mass_in)
             {
                 length = length_in;
                 diameter = diameter_in;
@@ -57,5 +66,6 @@ namespace WindowsFormsApplication1
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
     }
 }
