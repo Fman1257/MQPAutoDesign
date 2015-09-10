@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,13 +48,18 @@
             this.timefbox = new System.Windows.Forms.TextBox();
             this.initialbox = new System.Windows.Forms.TextBox();
             this.ODEbutton = new System.Windows.Forms.Button();
+            this.NumberOfTeethTxtBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.OSLObutton = new System.Windows.Forms.Button();
             this.openFileMain = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.NumberOfTeethTxtBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.VelocityIn = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RatioBox = new System.Windows.Forms.TextBox();
+            this.CalculateOutputButton = new System.Windows.Forms.Button();
+            this.OutputVelBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -138,7 +143,11 @@
             this.flowLayoutPanel1.Controls.Add(this.initialbox);
             this.flowLayoutPanel1.Controls.Add(this.ODEbutton);
             this.flowLayoutPanel1.Controls.Add(this.NumberOfTeethTxtBox);
+            this.flowLayoutPanel1.Controls.Add(this.VelocityIn);
             this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.CalculateOutputButton);
+            this.flowLayoutPanel1.Controls.Add(this.RatioBox);
+            this.flowLayoutPanel1.Controls.Add(this.OutputVelBox);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -197,24 +206,42 @@
             this.ODEbutton.UseVisualStyleBackColor = true;
             this.ODEbutton.Click += new System.EventHandler(this.ODEbutton_Click_1);
             // 
+            // NumberOfTeethTxtBox
+            // 
+            this.NumberOfTeethTxtBox.Location = new System.Drawing.Point(3, 58);
+            this.NumberOfTeethTxtBox.Name = "NumberOfTeethTxtBox";
+            this.NumberOfTeethTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.NumberOfTeethTxtBox.TabIndex = 7;
+            this.NumberOfTeethTxtBox.Text = "Teeth";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(215, 58);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(181, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "AddGearButton";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AddGearButton_Click_1);
+            // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(3, 284);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Series2";
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Series2";
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(380, 263);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -249,22 +276,44 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // NumberOfTeethTxtBox
+            // VelocityIn
             // 
-            this.NumberOfTeethTxtBox.Location = new System.Drawing.Point(3, 58);
-            this.NumberOfTeethTxtBox.Name = "NumberOfTeethTxtBox";
-            this.NumberOfTeethTxtBox.Size = new System.Drawing.Size(100, 20);
-            this.NumberOfTeethTxtBox.TabIndex = 7;
+            this.VelocityIn.Location = new System.Drawing.Point(109, 58);
+            this.VelocityIn.Name = "VelocityIn";
+            this.VelocityIn.Size = new System.Drawing.Size(100, 20);
+            this.VelocityIn.TabIndex = 9;
+            this.VelocityIn.Text = "Velocity";
             // 
-            // button2
+            // contextMenuStrip2
             // 
-            this.button2.Location = new System.Drawing.Point(109, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "AddGearButton";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.AddGearButton_Click_1);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // RatioBox
+            // 
+            this.RatioBox.Location = new System.Drawing.Point(140, 87);
+            this.RatioBox.Name = "RatioBox";
+            this.RatioBox.Size = new System.Drawing.Size(100, 20);
+            this.RatioBox.TabIndex = 10;
+            this.RatioBox.Text = "Ratio";
+            // 
+            // CalculateOutputButton
+            // 
+            this.CalculateOutputButton.Location = new System.Drawing.Point(3, 87);
+            this.CalculateOutputButton.Name = "CalculateOutputButton";
+            this.CalculateOutputButton.Size = new System.Drawing.Size(131, 23);
+            this.CalculateOutputButton.TabIndex = 11;
+            this.CalculateOutputButton.Text = "Calculate Output";
+            this.CalculateOutputButton.UseVisualStyleBackColor = true;
+            this.CalculateOutputButton.Click += new System.EventHandler(this.CalculateOutputButton_Click);
+            // 
+            // OutputVelBox
+            // 
+            this.OutputVelBox.Location = new System.Drawing.Point(246, 87);
+            this.OutputVelBox.Name = "OutputVelBox";
+            this.OutputVelBox.Size = new System.Drawing.Size(100, 20);
+            this.OutputVelBox.TabIndex = 12;
+            this.OutputVelBox.Text = "Output Velocity";
             // 
             // Form1
             // 
@@ -314,6 +363,11 @@
         private System.Windows.Forms.Button OSLObutton;
         private System.Windows.Forms.TextBox NumberOfTeethTxtBox;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox VelocityIn;
+        private System.Windows.Forms.Button CalculateOutputButton;
+        private System.Windows.Forms.TextBox RatioBox;
+        private System.Windows.Forms.TextBox OutputVelBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
 

@@ -16,6 +16,8 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         //int x = 0;
+        List<Program.Gear> gears = new List<Program.Gear>();
+
         public Form1()
         {
             InitializeComponent();
@@ -108,7 +110,22 @@ namespace WindowsFormsApplication1
         {
             float teeth;
             float.TryParse(NumberOfTeethTxtBox.Text, out teeth);
-            Program.Gear gear1 = new Program.Gear(teeth);
+            Program.Gear gear = new Program.Gear(teeth);
+            gears.Add(gear);
+            Console.WriteLine("{0}", gears.Count);
+        }
+
+        private void CalculateOutputButton_Click(object sender, EventArgs e)
+        {
+            float ratio = gears[0].num_teeth / gears[gears.Count - 1].num_teeth;
+            if (gears.Count % 2 == 0)
+            {
+                ratio = ratio * -1;
+            }
+            RatioBox.Text = Convert.ToString(ratio);
+            float velocityfloat;
+            float.TryParse(VelocityIn.Text, out velocityfloat);
+            OutputVelBox.Text = Convert.ToString(velocityfloat * ratio);
         }
     }
 }
