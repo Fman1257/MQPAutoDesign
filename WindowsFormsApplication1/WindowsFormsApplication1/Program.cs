@@ -7,7 +7,7 @@ using Microsoft.Research.Oslo;
 
 namespace WindowsFormsApplication1
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         public partial class Gear
         {
             // Properties
-            public float num_teeth;
+            public int num_teeth;
             public float pitch_diameter;
             public float key_hole_size;
             public float diametral_pitch;
@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
             public List<Gear> Output_Gears;
 
             // Constructor for new gear
-            public Gear(float teeth)
+            public Gear(int teeth)
             {
                 num_teeth = teeth;
                 diametral_pitch = num_teeth / pitch_diameter;

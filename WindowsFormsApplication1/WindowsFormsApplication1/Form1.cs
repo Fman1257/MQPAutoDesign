@@ -13,10 +13,10 @@ using Microsoft.Research.Oslo;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public  partial class Form1 : Form
     {
         //int x = 0;
-        List<Program.Gear> gears = new List<Program.Gear>();
+        public static List<Program.Gear> gears = new List<Program.Gear>();
 
         public Form1()
         {
@@ -108,8 +108,8 @@ namespace WindowsFormsApplication1
 
         private void AddGearButton_Click_1(object sender, EventArgs e)
         {
-            float teeth;
-            float.TryParse(NumberOfTeethTxtBox.Text, out teeth);
+            int teeth;
+            int.TryParse(NumberOfTeethTxtBox.Text, out teeth);
             Program.Gear gear = new Program.Gear(teeth);
             gears.Add(gear);
             Console.WriteLine("{0}", gears.Count);
@@ -126,6 +126,11 @@ namespace WindowsFormsApplication1
             float velocityfloat;
             float.TryParse(VelocityIn.Text, out velocityfloat);
             OutputVelBox.Text = Convert.ToString(velocityfloat * ratio);
+
+            // Open image
+            DesignWindow frm = new DesignWindow();
+            frm.Show();
+
         }
     }
 }
