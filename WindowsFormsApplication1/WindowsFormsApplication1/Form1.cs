@@ -132,5 +132,11 @@ namespace WindowsFormsApplication1
             frm.Show();
 
         }
+
+        private void AutoGearButton_Click(object sender, EventArgs e)
+        {
+            AutoGearForm frm = new AutoGearForm();
+            frm.Show();
+        }
     }
 }

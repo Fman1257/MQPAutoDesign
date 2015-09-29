@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoGearForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoGearForm.Designer.cs">
+      <DependentUpon>AutoGearForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DesignWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AutoGearForm.resx">
+      <DependentUpon>AutoGearForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DesignWindow.resx">
       <DependentUpon>DesignWindow.cs</DependentUpon>
     </EmbeddedResource>

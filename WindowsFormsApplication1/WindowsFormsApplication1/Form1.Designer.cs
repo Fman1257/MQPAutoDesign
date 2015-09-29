@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,17 +49,18 @@
             this.initialbox = new System.Windows.Forms.TextBox();
             this.ODEbutton = new System.Windows.Forms.Button();
             this.NumberOfTeethTxtBox = new System.Windows.Forms.TextBox();
+            this.VelocityIn = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.CalculateOutputButton = new System.Windows.Forms.Button();
+            this.RatioBox = new System.Windows.Forms.TextBox();
+            this.OutputVelBox = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.OSLObutton = new System.Windows.Forms.Button();
             this.openFileMain = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.VelocityIn = new System.Windows.Forms.TextBox();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.RatioBox = new System.Windows.Forms.TextBox();
-            this.CalculateOutputButton = new System.Windows.Forms.Button();
-            this.OutputVelBox = new System.Windows.Forms.TextBox();
+            this.AutoGearButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -148,6 +149,7 @@
             this.flowLayoutPanel1.Controls.Add(this.CalculateOutputButton);
             this.flowLayoutPanel1.Controls.Add(this.RatioBox);
             this.flowLayoutPanel1.Controls.Add(this.OutputVelBox);
+            this.flowLayoutPanel1.Controls.Add(this.AutoGearButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -214,6 +216,14 @@
             this.NumberOfTeethTxtBox.TabIndex = 7;
             this.NumberOfTeethTxtBox.Text = "Teeth";
             // 
+            // VelocityIn
+            // 
+            this.VelocityIn.Location = new System.Drawing.Point(109, 58);
+            this.VelocityIn.Name = "VelocityIn";
+            this.VelocityIn.Size = new System.Drawing.Size(100, 20);
+            this.VelocityIn.TabIndex = 9;
+            this.VelocityIn.Text = "Velocity";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(215, 58);
@@ -224,24 +234,50 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddGearButton_Click_1);
             // 
+            // CalculateOutputButton
+            // 
+            this.CalculateOutputButton.Location = new System.Drawing.Point(3, 87);
+            this.CalculateOutputButton.Name = "CalculateOutputButton";
+            this.CalculateOutputButton.Size = new System.Drawing.Size(131, 23);
+            this.CalculateOutputButton.TabIndex = 11;
+            this.CalculateOutputButton.Text = "Calculate Output";
+            this.CalculateOutputButton.UseVisualStyleBackColor = true;
+            this.CalculateOutputButton.Click += new System.EventHandler(this.CalculateOutputButton_Click);
+            // 
+            // RatioBox
+            // 
+            this.RatioBox.Location = new System.Drawing.Point(140, 87);
+            this.RatioBox.Name = "RatioBox";
+            this.RatioBox.Size = new System.Drawing.Size(100, 20);
+            this.RatioBox.TabIndex = 10;
+            this.RatioBox.Text = "Ratio";
+            // 
+            // OutputVelBox
+            // 
+            this.OutputVelBox.Location = new System.Drawing.Point(246, 87);
+            this.OutputVelBox.Name = "OutputVelBox";
+            this.OutputVelBox.Size = new System.Drawing.Size(100, 20);
+            this.OutputVelBox.TabIndex = 12;
+            this.OutputVelBox.Text = "Output Velocity";
+            // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 284);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Series2";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(380, 263);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -276,44 +312,20 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // VelocityIn
-            // 
-            this.VelocityIn.Location = new System.Drawing.Point(109, 58);
-            this.VelocityIn.Name = "VelocityIn";
-            this.VelocityIn.Size = new System.Drawing.Size(100, 20);
-            this.VelocityIn.TabIndex = 9;
-            this.VelocityIn.Text = "Velocity";
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // RatioBox
+            // AutoGearButton
             // 
-            this.RatioBox.Location = new System.Drawing.Point(140, 87);
-            this.RatioBox.Name = "RatioBox";
-            this.RatioBox.Size = new System.Drawing.Size(100, 20);
-            this.RatioBox.TabIndex = 10;
-            this.RatioBox.Text = "Ratio";
-            // 
-            // CalculateOutputButton
-            // 
-            this.CalculateOutputButton.Location = new System.Drawing.Point(3, 87);
-            this.CalculateOutputButton.Name = "CalculateOutputButton";
-            this.CalculateOutputButton.Size = new System.Drawing.Size(131, 23);
-            this.CalculateOutputButton.TabIndex = 11;
-            this.CalculateOutputButton.Text = "Calculate Output";
-            this.CalculateOutputButton.UseVisualStyleBackColor = true;
-            this.CalculateOutputButton.Click += new System.EventHandler(this.CalculateOutputButton_Click);
-            // 
-            // OutputVelBox
-            // 
-            this.OutputVelBox.Location = new System.Drawing.Point(246, 87);
-            this.OutputVelBox.Name = "OutputVelBox";
-            this.OutputVelBox.Size = new System.Drawing.Size(100, 20);
-            this.OutputVelBox.TabIndex = 12;
-            this.OutputVelBox.Text = "Output Velocity";
+            this.AutoGearButton.Location = new System.Drawing.Point(352, 87);
+            this.AutoGearButton.Name = "AutoGearButton";
+            this.AutoGearButton.Size = new System.Drawing.Size(75, 23);
+            this.AutoGearButton.TabIndex = 2;
+            this.AutoGearButton.Text = "Auto Gear";
+            this.AutoGearButton.UseVisualStyleBackColor = true;
+            this.AutoGearButton.Click += new System.EventHandler(this.AutoGearButton_Click);
             // 
             // Form1
             // 
@@ -368,6 +380,7 @@
         private System.Windows.Forms.TextBox RatioBox;
         private System.Windows.Forms.TextBox OutputVelBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.Button AutoGearButton;
     }
 }
 
