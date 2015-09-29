@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void DesignButton_Click(object sender, EventArgs e)
         {
-            /*
+            
             float length;
             float width;
             float height;
@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
             {
 
             }
-            */
+            
         }
     }
 }
