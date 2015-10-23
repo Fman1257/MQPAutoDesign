@@ -89,47 +89,100 @@ namespace WindowsFormsApplication1
             List<List<int>> stageList = new List<List<int>>();
 
             // Adds the first possible set (from prime factorization)
-            List<int> firstTrain = FindFactors(torque_ratio_converted);
+            // List<int> firstTrain = FindFactors(torque_ratio_converted);
+            List<int> firstTrain = new List<int>();
+            firstTrain.Add(2);
+            firstTrain.Add(2);
+            firstTrain.Add(3);
+            firstTrain.Add(3);
+            firstTrain.Add(5);
             stageList.Add(firstTrain);
 
             // Counts the number of stages of the first stage. This will be used to only check for the current stage.
             stageTrack = stageList[0].Count;
-
+            Console.WriteLine(stageList[0].Count);
             // Calculates all possible gear trains
             while (stageTrack > 0)
             {
+                List<List<int>> tempStageList = new List<List<int>>();
+                Console.WriteLine("Created new instance of tempStageList");
                 stageList.ForEach(train => // For each geartrain in stage list,
                 {
                     if (stageTrack == train.Count) // Find all geartrains that have the number of stages in stageTrack
                     {
-                        for (int trainIndex = 0; trainIndex < train.Count - 2; trainIndex++) // Index tracker for the current train
+                        Console.WriteLine("Found geartrain with specified number of stages, {0}", train.Count);
+                        for (int trainIndex = 0; trainIndex < (train.Count - 1); trainIndex++) // Index tracker for the current train
                         {
-                            for (int i = 1; i < (train.Count - 1 - trainIndex); i++) // For each gear train with that number of stages, multiply two of the numbers, and add the new list to stageList
+                            Console.WriteLine("--Incremented trainIndex, {0}", trainIndex);
+                            for (int i = 1; i < (train.Count - trainIndex); i++) // For each gear train with that number of stages, multiply two of the numbers, and add the new list to stageList
                             {
+                                Console.WriteLine("---factor1 index: ({0}, {1}), factor2 index: ({2}, {3})", trainIndex, train.ElementAt(trainIndex), (trainIndex + i), train.ElementAt(trainIndex + i));
                                 int numberToAdd = train[trainIndex] * train[trainIndex + i];
-                                // Creates new train to add to stageList
-                                List<int> trainToAdd = train;
-                                // Removes the two numbers being multiplied and adds their product to the geartrain to be added
-                                trainToAdd.RemoveAt(trainIndex);
-                                trainToAdd.RemoveAt(trainIndex + i);
-                                trainToAdd.Add(numberToAdd);
-                                // Add the new train to the stage list
-                                stageList.Add(trainToAdd);
+                                // 10:1 rule filter
+                                if (numberToAdd > 10) // if the ratio is greater than 10
+                                {
+                                    // Do Nothing
+                                }
+                                else //if it is 10 or below, continue forming the gear train to add
+                                {
+                                    // Creates new train to add to stageList
+                                    List<int> trainToAdd = new List<int>(train);
+
+                                    // Removes the two numbers being multiplied and adds their product to the geartrain to be added
+                                    Console.WriteLine("---Added {0} to train, removed {1} and {2}", numberToAdd, trainToAdd.ElementAt(trainIndex), trainToAdd.ElementAt(trainIndex + i));
+                                    trainToAdd.RemoveAt(trainIndex + i);
+                                    trainToAdd.RemoveAt(trainIndex);
+                                    trainToAdd.Add(numberToAdd);
+                                    trainToAdd.Sort();
+                                    //Check to see if the train is already in the list
+                                    if (checkIfInList(trainToAdd, tempStageList)) // If it is, then do nothing
+
+                                    {
+                                    }
+                                    else // if it isn't, add it to tempStageList
+                                    {
+                                        tempStageList.Add(trainToAdd);
+                                        Console.WriteLine("---Added train to tempStageList");
+                                    }
+                                }
+
                             }
+
                         }
                     }
                 });
+
+                // Add temporary list to stageList
+                if (!tempStageList.Any()) // If tempStageList is empty
+                {
+                    // Do nothing
+                }
+
+                else //If it isn't, add tempStageList to StageList
+                {
+                    stageList.AddRange(tempStageList);
+                    Console.WriteLine("TempStageList added to StageList");
+                }
 
                 // Filter duplicates
                 stageList.ForEach(train => train.Sort()); // Sort every list in stageList
                 stageList = stageList.Distinct().ToList(); // Remove Duplicates using .Distinct().ToList()
 
-                // Filter based on 10:1 rule NEED TO IMPLEMENT
+                Console.WriteLine("Current Stage List:");
+                stageList.ForEach(train =>
+                {
+                    for (int i = 0; i < train.Count; i++)
+                    {
+                        Console.Write("{0}-", train[i]);
+                    }
+                    Console.WriteLine();
+
+                });
+                
 
                 stageTrack--; // Decrements stageTrack
+                Console.WriteLine("stageTrack = {0}", stageTrack);
             }
-
-            stageList.ForEach(train => Console.WriteLine(train));
 
             // END OF FELICE'S PART
 
@@ -341,8 +394,23 @@ namespace WindowsFormsApplication1
             return FactorList;
         }
 
+        private bool checkIfInList(List<int> listToCheck, List<List<int>> listOfLists)
+        {
+
+            for (int i = 0; i < listOfLists.Count; i++) {
+                if (listOfLists[i].SequenceEqual(listToCheck))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
     }
+
+
 }
 
 
