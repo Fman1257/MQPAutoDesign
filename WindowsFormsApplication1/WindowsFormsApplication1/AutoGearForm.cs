@@ -67,8 +67,8 @@ namespace WindowsFormsApplication1
                 torque_ratio_converted = Convert.ToInt32(torque_ratio_double); // Check?
             }
 
-            /* // Now get prime factors
-            if (factor_trigger == 0)
+            // Now get prime factors
+            /*if (factor_trigger == 0)
             {
                 factoring(Convert.ToInt32(torque_ratio), master_factor_array, 0);
             }
@@ -85,26 +85,34 @@ namespace WindowsFormsApplication1
 
             // FELICE'S PART
 
-            // Creates new List to store all possible gear train ratios
-            List<List<int>> stageList = new List<List<int>>();
+            // Creates new List to store all possible gear train ratios, beginning with the first gear train
 
-            // Adds the first possible set (from prime factorization)
-            // List<int> firstTrain = FindFactors(torque_ratio_converted);
-            List<int> firstTrain = new List<int>();
+            List<List<double>> stageList = new List<List<double>>();
+            Console.WriteLine("{0} is the torque ratio", torque_ratio);
+            List<double> firstTrain = FindFactors((int)torque_ratio);
+
+            stageList.Add(firstTrain);
+
+            // DEBUG TEST
+            /*
+            List<List<double>> stageList = new List<List<double>>();
+            List<double> firstTrain = new List<double>();
             firstTrain.Add(2);
             firstTrain.Add(2);
             firstTrain.Add(3);
             firstTrain.Add(3);
             firstTrain.Add(5);
+
             stageList.Add(firstTrain);
+            */
 
             // Counts the number of stages of the first stage. This will be used to only check for the current stage.
             stageTrack = stageList[0].Count;
-            Console.WriteLine(stageList[0].Count);
+            Console.WriteLine("Starting stageTrack: {0}", stageTrack);
             // Calculates all possible gear trains
             while (stageTrack > 0)
             {
-                List<List<int>> tempStageList = new List<List<int>>();
+                List<List<double>> tempStageList = new List<List<double>>();
                 Console.WriteLine("Created new instance of tempStageList");
                 stageList.ForEach(train => // For each geartrain in stage list,
                 {
@@ -117,7 +125,7 @@ namespace WindowsFormsApplication1
                             for (int i = 1; i < (train.Count - trainIndex); i++) // For each gear train with that number of stages, multiply two of the numbers, and add the new list to stageList
                             {
                                 Console.WriteLine("---factor1 index: ({0}, {1}), factor2 index: ({2}, {3})", trainIndex, train.ElementAt(trainIndex), (trainIndex + i), train.ElementAt(trainIndex + i));
-                                int numberToAdd = train[trainIndex] * train[trainIndex + i];
+                                double numberToAdd = train[trainIndex] * train[trainIndex + i];
                                 // 10:1 rule filter
                                 if (numberToAdd > 10) // if the ratio is greater than 10
                                 {
@@ -126,7 +134,7 @@ namespace WindowsFormsApplication1
                                 else //if it is 10 or below, continue forming the gear train to add
                                 {
                                     // Creates new train to add to stageList
-                                    List<int> trainToAdd = new List<int>(train);
+                                    List<double> trainToAdd = new List<double>(train);
 
                                     // Removes the two numbers being multiplied and adds their product to the geartrain to be added
                                     Console.WriteLine("---Added {0} to train, removed {1} and {2}", numberToAdd, trainToAdd.ElementAt(trainIndex), trainToAdd.ElementAt(trainIndex + i));
@@ -176,7 +184,6 @@ namespace WindowsFormsApplication1
                         Console.Write("{0}-", train[i]);
                     }
                     Console.WriteLine();
-
                 });
                 
 
@@ -189,6 +196,12 @@ namespace WindowsFormsApplication1
             //Console.WriteLine(Gear_Ratio_Master_List);
 
         }
+
+
+    
+
+
+
         // Get stage ratios from factoring
         //http://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
         private void factoring(int num, double[,,] master_factor_array, int master_index)
@@ -239,7 +252,6 @@ namespace WindowsFormsApplication1
                     array_copy = array_copy + 1;
                 }
             }
-
         }
 
         // Analyze factors for stage combinations ADD TO GET BASE PRIMES
@@ -360,9 +372,9 @@ namespace WindowsFormsApplication1
 
 
         // Return the number's prime factors. This method uses Lists as opposed to arrays
-        private List<int> FindFactors(int num)
+        private List<double> FindFactors(double num)
         {
-            List<int> FactorList = new List<int>(50);
+            List<double> FactorList = new List<double>();
 
             // Take out the 2s.
             while (num % 2 == 0)
@@ -372,7 +384,7 @@ namespace WindowsFormsApplication1
             }
 
             // Take out other primes.
-            int factor = 3;
+            double factor = 3;
             while (factor * factor <= num)
             {
                 if (num % factor == 0)
@@ -394,7 +406,7 @@ namespace WindowsFormsApplication1
             return FactorList;
         }
 
-        private bool checkIfInList(List<int> listToCheck, List<List<int>> listOfLists)
+        private bool checkIfInList(List<double> listToCheck, List<List<double>> listOfLists)
         {
 
             for (int i = 0; i < listOfLists.Count; i++) {
@@ -403,14 +415,9 @@ namespace WindowsFormsApplication1
                     return true;
                 }
             }
-
             return false;
         }
-
-
     }
-
-
 }
 
 
